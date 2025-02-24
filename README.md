@@ -21,11 +21,11 @@ Este é um projeto de uma landing page desenvolvida como uma cópia da página p
 
 1. Clone o repositório:
 
-    `git clone https://github.com/seu-usuario/landing-page-notion.git`
+    `git clone https://github.com/esdrassantos06/notion-landing-page-copy`
 
 2.  Navegue até o diretório do projeto:
     
-    `cd landing-page-notion` 
+    `cd notion-landing-page-copy` 
     
 3.  Instale as dependências:
     
