@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/header";
+import { Inter } from 'next/font/google';
 
 
-
+const fontInter = Inter();
 
 export const metadata: Metadata = {
   title: "Your connected workspace for wiki, docs & projects | Notion",
@@ -21,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning 
-        className={`bg-background w-full h-screen`}
+        className={`bg-background ${fontInter.className} w-full h-screen`}
       >
         <Header />
         {children}

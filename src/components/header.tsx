@@ -3,16 +3,6 @@
 import React from "react";
 import Logo from "./logo";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 
 import {
   BookBookmark,
@@ -26,6 +16,67 @@ import {
   Table,
   Target,
 } from "@phosphor-icons/react";
+import Dropdown from "./dropdown";
+
+const download: {
+  title: string;
+}[] = [
+  {
+    title: "Notion",
+  },
+  {
+    title: "Calendar",
+  },
+  {
+    title: "Web Clipper",
+  },
+];
+
+const individuals: {
+  title: string;
+}[] = [
+  {
+    title: "Personal",
+  },
+  {
+    title: "Students",
+  },
+  {
+    title: "Teachers",
+  },
+  {
+    title: "Creators",
+  },
+];
+
+const teams: {
+  title: string;
+}[] = [
+  {
+    title: "Product",
+  },
+  {
+    title: "Engineering",
+  },
+  {
+    title: "Design",
+  },
+  {
+    title: "Marketing",
+  },
+  {
+    title: "IT",
+  },
+  {
+    title: "Startups",
+  },
+  {
+    title: "Enterprise",
+  },
+  {
+    title: "Costumer stories",
+  },
+];
 
 const products: {
   title: string;
@@ -35,177 +86,148 @@ const products: {
   {
     title: "AI",
     description: "Integrated AI assistant",
-    logo: <SmileyMelting size={30} />,
+    logo: <SmileyMelting size={20} />,
   },
   {
     title: "Docs",
     description: "Simple & powerful",
-    logo: <File />,
+    logo: <File size={20} />,
   },
   {
     title: "Wiki",
     description: "Centralize your knowledge",
-    logo: <BookBookmark />,
+    logo: <BookBookmark size={20} />,
   },
   {
     title: "Projects",
     description: "For every team or size",
-    logo: <Target />,
+    logo: <Target size={20} />,
   },
   {
     title: "Calendar",
     description: "Time and Work, together",
-    logo: <Calendar />,
+    logo: <Calendar size={20} />,
   },
   {
     title: "Mail",
     description: "Email that works for you",
-    logo: <PaperPlaneTilt />,
+    logo: <PaperPlaneTilt size={20} />,
   },
   {
     title: "Sites",
     description: "Publish anything, fast",
-    logo: <Globe />,
+    logo: <Globe size={20} />,
   },
   {
     title: "Forms",
     description: "Captures responses and requests",
-    logo: <Table />,
+    logo: <Table size={20} />,
   },
   {
     title: "Marketplace",
     description: "Templates to get you started",
-    logo: <Storefront />,
+    logo: <Storefront size={20} />,
   },
   {
     title: "Integrations",
     description: "Connect your tools to Notion",
-    logo: <PlugsConnected />,
-  },
-];
-
-const components: { title: string; href: string; description: string }[] = [
-  {
-    title: "Alert Dialog",
-    href: "/",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
-  },
-  {
-    title: "Hover Card",
-    href: "/",
-    description:
-      "For sighted users to preview content available behind a link.",
-  },
-  {
-    title: "Progress",
-    href: "/",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-  },
-  {
-    title: "Scroll-area",
-    href: "/",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+    logo: <PlugsConnected size={20} />,
   },
 ];
 
 export default function Header() {
   return (
-    <header className="w-full p-4 h-14 flex items-center justify-between">
-      <NavigationMenu className="w-full">
-        <NavigationMenuList>
-          <NavigationMenuItem className="mr-4">
-            <Link href="/">
-              <Logo />
-            </Link>
-          </NavigationMenuItem>
+    <header className="w-full p-4 h-14 flex items-center justify-center">
+      <Link href="/" className="mr-8">
+        <Logo />
+      </Link>
+      <nav className="flex navbar items-center w-full justify-between">
+        <ul className="flex items-center justify-center gap-0.5 part-1-navbar-links">
+          <Dropdown buttonLabel="Product">
+            {products.map((product, index) => (
+              <div
+                key={index}
+                className="flex hover:bg-hover cursor-pointer items-center justify-start rounded-md transition-colors duration-300 gap-2 w-full h-10 py-6 px-1 flex-row"
+              >
+                <div className="h-9 w-9 flex justify-center items-center rounded-md border border-gray-200">
+                  {product.logo}
+                </div>
+                <div className="flex w-[70%] flex-col items-start justify-center">
+                  <span className="font-normal text-base">
+                    {product.title}
+                  </span>
+                  <span className="text-xs text-nowrap text-zinc-500">
+                    {product.description}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </Dropdown>
 
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Product</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="flex flex-col w-[200px] gap-3 p-2">
-                {products.map((product, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="flex hover:bg-hover rounded-md transition-colors duration-300 w-full h-15 flex-row"
-                    >
-                      {product.logo}
-                      <div className="flex flex-col ">
-                      <span className="text-bold text-lg">{product.title}</span>
-                      <span className="text-sm">{product.description}</span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+          <Dropdown buttonLabel="Teams" width="w-42">
+            {teams.map((team, index) => (
+              <div
+                key={index}
+                className="flex hover:bg-hover cursor-pointer items-center justify-start rounded-md transition-colors duration-300 gap-2 w-full h-3 px-3 py-4 flex-row"
+              >
+                <span className="font-normal text-base">{team.title}</span>
+              </div>
+            ))}
+          </Dropdown>
 
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {components.map((component) => (
-                  <ListItem
-                    key={component.title}
-                    title={component.title}
-                    href={component.href}
-                  >
-                    {component.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <Link href="/docs" legacyBehavior passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Documentation
-              </NavigationMenuLink>
-            </Link>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+          <Dropdown buttonLabel="Individuals" width="w-38">
+            {individuals.map((individual, index) => (
+              <div
+                key={index}
+                className="flex hover:bg-hover cursor-pointer items-center justify-start rounded-md transition-colors duration-300 gap-2 w-full h-3 px-3 py-4 flex-row"
+              >
+                <span className="font-normal text-base">
+                  {individual.title}
+                </span>
+              </div>
+            ))}
+          </Dropdown>
+
+          <Dropdown buttonLabel="Download" width="w-60">
+            {download.map((down, index) => (
+              <div
+                key={index}
+                className="flex hover:bg-hover cursor-pointer items-center justify-start rounded-md transition-colors duration-300 gap-2 w-full h-3 px-3 py-4 flex-row"
+              >
+                <span className="font-normal text-base">{down.title}</span>
+              </div>
+            ))}
+            <p className="text-left text-[.91rem] px-3 pt-2 pb-3">
+              Notion is always at home <br /> right in{" "}
+              <a
+                className="underline hover:text-blue-500"
+                href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                target="_blank"
+              >
+                your browser
+              </a>
+            </p>
+          </Dropdown>
+
+          <Link href='/pricing' className="hover:bg-gray-200 h-8 flex items-center rounded-md px-3">Pricing</Link>
+        </ul>
+
+        <ul className="flex items-center justify-center part-2-navbar-links">
+          <li className="hover:bg-gray-200 px-3 flex items-center font-medium justify-center h-8 text-text-primary rounded-md  cursor-pointer">
+            Request a demo
+          </li>
+
+          <div className="separator-navbar w-[1px] mx-4 h-5 bg-black/20"></div>
+
+          <li className=" hover:bg-gray-200 mr-4 flex items-center justify-center px-3 h-8 font-medium  text-text-primary rounded-md cursor-pointer">
+            Log in
+          </li>
+
+          <button className="button-get-notion text-sm px-3 h-8 flex items-center justify-center rounded-md font-semibold text-white hover:bg-text-primary/90 bg-text-primary py-1">
+            Get Notion free
+          </button>
+        </ul>
+      </nav>
     </header>
   );
 }
-
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  );
-});
-ListItem.displayName = "ListItem";
