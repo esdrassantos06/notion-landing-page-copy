@@ -143,7 +143,7 @@ export default function Header() {
       </Link>
       <nav className="flex navbar items-center w-full justify-between">
         <ul className="flex items-center justify-center gap-0.5 part-1-navbar-links">
-          <Dropdown buttonLabel="Product">
+          <Dropdown buttonLabel="Product" width="w-64">
             {products.map((product, index) => (
               <div
                 key={index}
@@ -153,9 +153,7 @@ export default function Header() {
                   {product.logo}
                 </div>
                 <div className="flex w-[70%] flex-col items-start justify-center">
-                  <span className="font-normal text-base">
-                    {product.title}
-                  </span>
+                  <span className="font-normal text-base">{product.title}</span>
                   <span className="text-xs text-nowrap text-zinc-500">
                     {product.description}
                   </span>
@@ -209,7 +207,12 @@ export default function Header() {
             </p>
           </Dropdown>
 
-          <Link href='/pricing' className="hover:bg-gray-200 h-8 flex items-center rounded-md px-3">Pricing</Link>
+          <Link
+            href="/pricing"
+            className="hover:bg-gray-200 h-8 flex items-center rounded-md px-3"
+          >
+            Pricing
+          </Link>
         </ul>
 
         <ul className="flex items-center justify-center part-2-navbar-links">
