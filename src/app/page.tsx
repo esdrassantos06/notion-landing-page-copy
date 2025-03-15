@@ -8,10 +8,10 @@ export default function Home() {
         <div className="flex flex-col w-150 h-fit gap-4 ">
           <div className="flex w-120 gap-8 flex-col">
             <div className="titles text-text-primary">
-              <h1 className={`cursor-default text-7xl  font-semibold`}>
+              <h1 className={`cursor-default text-7xl font-bold`}>
                 The happier workspace
               </h1>
-              <h2 className="font-medium text-2xl">
+              <h2 className="font-medium mt-2 text-2xl">
                 Write. Plan. Collaborate. With a little help from AI.
               </h2>
             </div>
