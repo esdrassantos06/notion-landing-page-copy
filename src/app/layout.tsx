@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 import LayoutComponent from "@/components/LayoutComponent";
 
 
-const fontInter = Inter();
+const fontInter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: "Your connected workspace for wiki, docs & projects | Notion",
