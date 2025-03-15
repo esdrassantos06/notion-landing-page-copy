@@ -4,7 +4,6 @@ import drawing1 from "../../public/images/first-draw.png";
 
 export default function Home() {
   return (
-    <div className="w-full mx-auto container px-25 flex justify-center min-h-full">
       <div className="w-full h-fit pt-12 flex">
         <div className="flex flex-col w-150 h-fit gap-4 ">
           <div className="flex w-120 gap-8 flex-col">
@@ -46,6 +45,5 @@ export default function Home() {
           />
         </div>
       </div>
-    </div>
   );
 }

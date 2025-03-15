@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/header";
 import { Inter } from 'next/font/google';
+import LayoutComponent from "@/components/layoutComponent";
 
 
 const fontInter = Inter();
@@ -24,8 +24,9 @@ export default function RootLayout({
       <body suppressHydrationWarning 
         className={`bg-background ${fontInter.className} w-full h-screen`}
       >
-        <Header />
+        <LayoutComponent>
         {children}
+        </LayoutComponent>
       </body>
     </html>
   );
