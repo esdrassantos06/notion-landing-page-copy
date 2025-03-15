@@ -40,7 +40,7 @@ export default function Dropdown({
       onMouseLeave={() => {
         setIsHovering(false);
       }}
-      className="relative drop-down-menu inline-block"
+      className="relative z-99 drop-down-menu inline-block"
     >
       <button
         onClick={() => setIsOpen((prev) => !prev)}
