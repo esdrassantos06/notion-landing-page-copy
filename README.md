@@ -1,65 +1,88 @@
+# Notion Landing Page Clone
 
-# Landing Page - Cópia do Notion
+This project is a recreation of Notion's homepage, built using modern web technologies. The goal is to replicate the look, feel, and basic functionality of Notion's landing page as closely as possible.
 
-Este é um projeto de uma landing page desenvolvida como uma cópia da página principal do Notion. O objetivo deste projeto é replicar o design e funcionalidade do Notion usando Next.js e TypeScript.
+## 🚀 Technologies Used
 
-## Tecnologias Utilizadas
+- **Next.js 15** - React framework with advanced features like server components
+- **React 19** - JavaScript library for building user interfaces
+- **TypeScript** - Static type-checking
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **Phosphor Icons** - Icon library for consistent styling
 
-- **Next.js** - Framework React para aplicações web.
-- **TypeScript** - Superset do JavaScript que adiciona tipagem estática.
-- **Tailwind CSS** - Framework de utilitários para criar interfaces responsivas e modernas.
-- **React** - Biblioteca para construir interfaces de usuário.
+## ✨ Features
 
-## Funcionalidades
+- Responsive design that works across desktop, tablet, and mobile
+- Interactive dropdown menus similar to Notion's navigation
+- Hero section with call-to-action buttons
+- "Trusted by teams" company logos display
+- Clean, minimal UI matching Notion's aesthetic
 
-- Layout similar ao Notion, com áreas de destaque para explicação e chamada para ação.
-- Responsividade para diferentes tamanhos de tela (desktop, tablet e mobile).
-- Navegação suave entre as seções.
-- Estilos e animações com Tailwind CSS.
+## 📋 Project Structure
 
-## Como Rodar o Projeto Localmente
+```
+notion-landing-page/
+├── public/
+│   └── images/           # Image assets
+├── src/
+│   ├── app/              # Next.js app router
+│   │   ├── globals.css
+│   │   └── page.tsx      # Main landing page
+│   ├── components/       # Reusable UI components
+│   │   ├── LayoutComponent.tsx
+│   │   ├── header.tsx
+│   │   ├── dropdown.tsx
+│   │   ├── logo.tsx
+│   │   └── trustedTeams.tsx
+```
 
-1. Clone o repositório:
+## 🚦 Getting Started
 
-    `git clone https://github.com/esdrassantos06/notion-landing-page-copy`
+### Prerequisites
 
-2.  Navegue até o diretório do projeto:
-    
-    `cd notion-landing-page-copy` 
-    
-3.  Instale as dependências:
-    
-    `npm install` 
-    
-4.  Rode o servidor de desenvolvimento:
-    
-    `npm run dev` 
-    
-5.  Acesse o projeto no navegador:
-    
-    `http://localhost:3000` 
-    
+- Node.js (version 18.18.0 or higher)
+- npm or yarn
 
-## Estrutura do Projeto
+### Installation
 
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/esdrassantos06/notion-landing-page-copy.git
+   ```
 
-    landing-page-notion/
-    ├── pages/
-    │   ├── _app.tsx
-    │   ├── index.tsx
-    ├── public/
-    │   └── images/
-    ├── styles/
-    │   └── globals.css
-    ├── tailwind.config.js
-    ├── tsconfig.json
-    ├── package.json
-    └── README.md
+2. Navigate to the project directory:
+   ```bash
+   cd notion-landing-page-copy
+   ```
 
-## Contribuições
+3. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-Se você quiser contribuir para o projeto, sinta-se à vontade para fazer um fork e enviar um pull request com melhorias ou correções.
+4. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-## Licença
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-Este projeto está licenciado sob a [MIT License](LICENSE)
+## 📱 Development
+
+The project uses Next.js with the app router, providing a file-based routing system.
+
+- `src/app/page.tsx` - The main landing page
+- `src/components/` - Contains all reusable UI components
+- `src/app/globals.css` - Global styles defined with Tailwind CSS
+
+## 🛠️ Customization
+
+You can modify the themes and colors in the `globals.css` file, which uses CSS variables for consistent styling throughout the application.
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
